@@ -1,11 +1,14 @@
-body {
+body{
     background-color: #0f121f;
-    /*background-image: url(/static/stars.jpg);*/
+    background-image: url("stars.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: #fff;
 }
-/*body *{*/
-/*    font-family: vazir, serif;*/
-/*}*/
+
+body *{
+    font-family: "vazir";
+}
 h1,h2,h3,h4,h5{
     font-weight: normal;
     margin:0;
