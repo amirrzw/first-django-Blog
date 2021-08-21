@@ -14,16 +14,28 @@
 <h2>
     <a href="{% url 'articles:list' %}">Articles List</a>
 </h2>
-<nav>
-    <ul>
-        <li>
-            <form class="logout-link" action="{% url 'users:logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">logout </button>
-            </form>
-        </li>
-    </ul>
-</nav>
+{% if user.is_authenticated %}
+    <nav>
+        <ul>
+            <li>
+                <form class="logout-link" action="{% url 'users:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">logout</button>
+                </form>
+            </li>
+            <li>
+                <a href="{% url 'articles:create' %}">create-article</a>
+            </li>
+        </ul>
+    </nav>
+{% else %}
+    <li>
+        <a href="{% url 'users:login' %}">login</a>
+    </li>
+    <li>
+        <a href="{% url 'users:signup' %}">signup</a>
+    </li>
+{% endif %}
 <div>
     {% block content %}
 
